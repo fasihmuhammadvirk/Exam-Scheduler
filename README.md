@@ -32,3 +32,13 @@ The problem addressed by the Exam Scheduling System is the manual and time-consu
 
 ## Conclusion: 
 The Exam Scheduling System provides a robust solution to the challenging task of generating optimized exam schedules for universities. By employing a local search algorithm and considering various hard and soft constraints, the system automates the process, ensuring fairness, efficiency, and convenience for all stakeholders. The system's user-friendly interface and comprehensive documentation further enhance its usability and understanding. Overall, the Exam Scheduling System streamlines the exam scheduling process, leading to improved academic operations within universities.
+
+## User Interface
+</div>
+Start
+<img src="readmefiles/home.png" width="900">
+DateSheet
+<img src="readmefiles/datesheet.png" width="900">
+Seating Plan
+<img src="readmefiles/seatingplan.png" width="900">
+<div align="center">
