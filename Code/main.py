@@ -1,4 +1,3 @@
-import pyodbc
 import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
@@ -32,33 +31,14 @@ class Examination:
         root.title("Examination Scheduler")
 
         tk.Label(root, bg='linen',text="Examination Scheduling", fg="red", font=(None, 20)).place(x=150, y=40)
-        
+    
 
-
-        def terminate_process_by_path(path):
-            """Terminates the process associated with a file given its path."""
-            try:
-                # get the process ID of the file
-                cmd = f"lsof -t {path}"
-                pid = int(subprocess.check_output(cmd, shell=True))
-                
-                # terminate the process using the PID
-                cmd = f"kill -9 {pid}"
-                subprocess.call(cmd, shell=True)
-                
-                print(f"Process terminated: {path}")
-            except subprocess.CalledProcessError:
-                print(f"No process found for file: {path}")
-
-        
         
         def week_1():
-            terminate_process_by_path('model_week2.py')
             w1.main()
             date.main()
 
         def week_2():
-            terminate_process_by_path('model_week1.py')
             w2.main()
             date.main()
 

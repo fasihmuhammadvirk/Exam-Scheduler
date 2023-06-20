@@ -3,12 +3,11 @@ import random
 from datetime import date
 import pandas as pd
 import numpy as np
-import copy
 import math
+import copy
 
-file = open("Code\schedule\Datesheet.txt", "w")
-file_stu = open("Code\schedule\Datesheet.txt", "w")
-
+file = open("Code/schedule/Datesheet.txt", "w")
+file_stu = open("Code/schedule/SeatingPlan.txt", "w")
 
 
 class ExamSlot:
@@ -41,9 +40,10 @@ class ExamSlot:
     def show_student(self):
         for student in self.students:
             if type(student) != int:
-                print(f'{str(self.day) :{" "}<{12}} {str(self.date) :{" "}<{15}}  {str(self.time) :{" "}<{15}}  '
-                      f'{str(student) :{" "}<{50}}  {str(self.course_code) :{" "}<{8}}  {str(self.course_name) :{" "}<{50}}'
-                      f'  {str(self.classroom) :{" "}<{8}}')
+                pass
+                # #print(f'{str(self.day) :{" "}<{12}} {str(self.date) :{" "}<{15}}  {str(self.time) :{" "}<{15}}  '
+                #       f'{str(student) :{" "}<{50}}  {str(self.course_code) :{" "}<{8}}  {str(self.course_name) :{" "}<{50}}'
+                #       f'  {str(self.classroom) :{" "}<{8}}')
 
     def show(self):
         print(f'{str(self.serial) :{" "}<{3}}  {str(self.day) :{" "}<{12}} {str(self.date) :{" "}<{15}}  '
@@ -53,13 +53,15 @@ class ExamSlot:
     def get_student_txt(self):
         for student in self.students:
             if type(student) != int:
-                file_stu.write(f'{str(self.day) :{" "}<{12}} {str(self.date) :{" "}<{15}}  {str(self.time) :{" "}<{15}}  '
-                      f'{str(student) :{" "}<{20}}  {str(self.course_code) :{" "}<{8}}  {str(self.course_name) :{" "}<{30}}'
-                      f'  {str(self.classroom) :{" "}<{8}}\n')
-
+                file_stu.write(
+                    f'{str(self.day) :{" "}<{12}} {str(self.date) :{" "}<{15}}  {str(self.time) :{" "}<{15}}  '
+                    f'{str(student) :{" "}<{45}}  {str(self.course_code) :{" "}<{8}}'
+                    f'  {str(self.classroom) :{" "}<{8}}\n')
+                # {str(self.course_name): {" "} < {30}}
+        
     def get_string(self):
         file.write(f'{str(self.serial) :{" "}<{2}}  {str(self.day) :{" "}<{9}} {str(self.date) :{" "}<{10}}  '
-                   f'{str(self.course_code) :{" "}<{8}}  {str(self.course_name) :{" "}<{30}} '
+                   f'{str(self.course_code) :{" "}<{8}}  {str(self.course_name) :{" "}<{50}} '
                    f' {str(self.time) :{" "}<{15}}'
                    f'  {str(self.classroom) :{" "}<{8}}  {str(self.invigilator) :{" "}<{20}}\n')
 
@@ -112,24 +114,26 @@ def is_mg_course(dictionary: dict):
 
 
 class ExamScheduler:
-    def __init__(self):
+        
+
+    def __init__(self, duration):
         # self.courses = pd.read_csv('./test_dataset/courses.csv', header=None)
-        self.courses = pd.read_csv('Code\\actual_dataset\\courses.csv', header=None)
+        self.courses = pd.read_csv('Code/actual_dataset/courses.csv', header=None)
         self.courses = np.array(self.courses)
         # self.rooms = pd.read_csv('./test_dataset/rooms.csv', header=None)
-        self.rooms = pd.read_csv('Code\\actual_dataset\\rooms.csv', header=None)
+        self.rooms = pd.read_csv('Code/actual_dataset/rooms.csv', header=None)
         self.rooms = np.array(self.rooms)
         # self.student_courses = pd.read_csv('./test_dataset/studentCourse.csv')
-        self.student_courses = pd.read_csv('Code\\actual_dataset\\studentCourses.csv')
+        self.student_courses = pd.read_csv('Code/actual_dataset/studentCourses.csv')
         # self.students = pd.read_csv('./test_dataset/studentNames.csv', header=None)
-        self.students = pd.read_csv('Code\\actual_dataset\\studentNames.csv', header=None)
+        self.students = pd.read_csv('Code/actual_dataset/studentNames.csv', header=None)
         self.students = np.array(self.students)
         # self.teachers = pd.read_csv('./test_dataset/teachers.csv', header=None)
-        self.teachers = pd.read_csv('Code\\actual_dataset\\teachers.csv', header=None)
+        self.teachers = pd.read_csv('Code/actual_dataset/teachers.csv', header=None)
         self.teachers = np.array(self.teachers)
         self.teachers = list(self.teachers)
         self.enroll = dict()
-        self.SOLUTION_DAYS = 10
+        self.SOLUTION_DAYS = duration
         self.course_size = len(self.courses)
         self.room_size = len(self.rooms)
         self.teacher_size = len(self.teachers)
@@ -153,7 +157,7 @@ class ExamScheduler:
         self.enroll = sorted(self.enroll.items(), key=lambda x: x[1][0], reverse=True)
         self.enroll = dict(self.enroll)
 
-        print_dict(self.enroll)
+        # print_dict(self.enroll)
 
     def sort_enrollment(self):
         for key, value in self.enroll.items():
@@ -197,92 +201,11 @@ class ExamScheduler:
         students = list(students)
         return students
 
-    def set_course_rooms(self):
-        for key, value in self.enroll.items():
-            rooms = math.ceil(len(value) / self.room_strength)
-            self.course_rooms.update({key: rooms})
-        # print_dict(self.course_rooms)
-    #
-    # def random_solution(self):
-    #     self.set_course_rooms()
-    #     for room in range(self.room_size):
-    #         for time in range(2):
-    #             for day in range(self.SOLUTION_DAYS):
-    #                 if len(self.course_rooms) > 0:
-    #                     if self.solution[room + (self.room_size * time)][day] == 0:
-    #                         key, value = self.course_rooms.popitem()
-    #                         for assign in range(value):
-    #                             if self.solution[room + (self.room_size * time) + assign][day] == 0:
-    #                                 self.solution[room + (self.room_size * time) + assign][day] = key
-    #     self.print_solution()
-    #     score = 100
-    #     minimum = 100
-    #     while score != 0:
-    #         self.print_solution()
-    #         score, min_clash, max_clash = self.fitness_clash()
-    #         self.random_clash_change(min_clash, max_clash)
-    #         self.fitness_clash()
-    #         if score < minimum:
-    #             minimum = score
-    #         print(f"Minimum: {minimum}")
-    #
-    #     # add annealing function
-    #     # add teachers
-    #     # assign time and students#
-    #
-    # def random_clash_change(self, min_day, max_day):
-    #     course_set = set()
-    #     for room in range(2 * self.SOLUTION_DAYS):
-    #         if self.solution[room][max_day] != 0:
-    #             course_set.add(self.solution[room][max_day])
-    #     course_set = list(course_set)
-    #     if len(course_set) > 0:
-    #         print(f"{course_set[0]}, column: {max_day}")
-    #         for room in range(2 * self.SOLUTION_DAYS):
-    #             if self.solution[room][max_day] == course_set[0]:
-    #                 self.solution[room][max_day] = 0
-    #         itr = 0
-    #         index = 0
-    #         while itr < math.ceil(len(self.enroll[course_set[0]]) / 28) and index < 20:
-    #             if self.solution[index][min_day] == 0:
-    #                 self.solution[index][min_day] = course_set[0]
-    #                 itr += 1
-    #             index += 1
-    #
-    # def fitness_clash(self):
-    #     course_set = list()
-    #     score = 0
-    #     col_score = 0
-    #     max_clash = [0, 0]
-    #     min_clash = [1000, 0]
-    #     for day in range(self.SOLUTION_DAYS):
-    #         for room in range(2 * self.room_size):
-    #             if self.solution[room][day] != 0:
-    #                 course_set.append(self.solution[room][day])
-    #         course_set = set(course_set)
-    #         course_set = list(course_set)
-    #         for i in range(len(course_set) - 1):
-    #             for j in range(i + 1, len(course_set)):
-    #                 col_score += intersection(self.enroll[course_set[i]], self.enroll[course_set[j]])
-    #         if col_score > max_clash[0]:
-    #             max_clash[0] = col_score
-    #             max_clash[1] = day
-    #         if col_score < min_clash[0]:
-    #             min_clash[0] = col_score
-    #             min_clash[1] = day
-    #         score += col_score
-    #         col_score = 0
-    #         course_set.clear()
-    #
-    #     print(f"Score is: {score}")
-    #     print(f"max clash: {max_clash[1], max_clash[0]}, min clash: {min_clash[1], min_clash[0]}")
-    #
-    #     return score, min_clash[1], max_clash[1]
-
     def make_solution(self):
         for room in range(self.room_size):
             for time in range(2):
                 for day in range(self.SOLUTION_DAYS):
+                    #print(f"Fitness Cost is: {self.solution_fitness() + self.fitness_anneal()}")
                     fake_enroll = copy.deepcopy(self.enroll)
                     current = self.occupied_students(day)
 
@@ -299,7 +222,7 @@ class ExamScheduler:
                     fake_enroll = sorted(fake_enroll.items(), key=lambda x: x[1][0], reverse=True)
                     fake_enroll = dict(fake_enroll)
 
-                    if self.get_remaining_count() == 0:
+                    if self.solution_fitness() == 0:
                         return 0
                     if len(list(fake_enroll.keys())) > 0:
                         if is_mg_course(fake_enroll):
@@ -314,7 +237,7 @@ class ExamScheduler:
                         days = self.days.pop(0)
                         # self.teachers[day % self.teacher_size]
                         crs_name = self.get_course_name(course)
-                        new_exam = ExamSlot(course, crs_name, str(days), str(times), "ROOM # " + str(room + 1), "ME",
+                        new_exam = ExamSlot(course, crs_name, str(days), str(times), "ROOM " + '# '+ str(room + 1) + " ", "ME",
                                             crs_stu, day + 1)
                         # print(f"{room}, {time}, {day}")
                         self.days.append(days)
@@ -335,7 +258,7 @@ class ExamScheduler:
                 rand = random.randint(0, self.teacher_size - 1)
                 if self.solution[i][j] != 0:
                     self.solution[i][j].set_teacher(self.teachers[rand][0])
-            print()
+        return self.solution
 
     def fitness_anneal(self):
         value = 1
@@ -355,48 +278,79 @@ class ExamScheduler:
         return score
 
     def start_annealing(self):
+        temp = 1000
+        min_temp = 1
+        cooling = 0.999
+
         self.make_enrollment()
-        self.make_solution()
+        current_solution = self.make_solution()
+        current_score = self.fitness_anneal()
+        best_solution = current_solution
+        best_score = current_score
         self.random_assign_teacher()
-        score = self.fitness_anneal()
+        #print(f"Fitness Cost is: {self.solution_fitness() + self.fitness_anneal()}")
 
-        while score != 0:
-            self.random_assign_teacher()
-            score = self.fitness_anneal()
+        while temp > min_temp:
 
-        self.print_solution()
+            if best_score == 0:
+                #print(f"Solution Found")
+                #print(f"The max conflicts in best solution are: {best_score}")
+                break
+
+            new_solution = self.random_assign_teacher()
+            new_score = self.fitness_anneal()
+            #print(f"Fitness Cost is: {self.solution_fitness() + self.fitness_anneal()}")
+
+            if new_score < best_score:
+                best_solution = copy.deepcopy(new_solution)
+                best_score = new_score
+                current_solution = copy.deepcopy(new_solution)
+                current_score = new_score
+            elif new_score < current_score:
+                current_solution = copy.deepcopy(new_solution)
+                current_score = new_score
+            else:
+                probability = math.pow(math.e, ((current_score - new_score) / temp))
+                if probability > 0.3:
+                    current_solution = new_solution.copy()
+                    current_score = new_score
+                else:
+                    #print(f"Solution Found")
+                    #print(f"The max conflicts in best solution are: {best_score}")
+                    break
+
+            temp *= cooling
+
+        #self.print_solution()
         self.make_txt()
         self.show_student_txt()
 
-    def print_enroll(self):
-        print(f"PRINTING")
-        for key, value in self.enroll.items():
-            print(f"{key}: {value}")
-        print()
+    # def print_enroll(self):
+    #     print(f"PRINTING")
+    #     for key, value in self.enroll.items():
+    #         print(f"{key}: {value}")
+    #     print()
 
-    def get_remaining_count(self):
+    def solution_fitness(self):
         count = 0
         for key, value in self.enroll.items():
             count += (value[0])
         return count
 
-    def print_solution(self):
-        for i in range(len(self.solution)):
-            for j in range(len(self.solution[0])):
-                if self.solution[i][j] != 0:
-                    print(self.solution[i][j].get_course(), end="           ")
-                else:
-                    print(self.solution[i][j], end="            ")
-            print()
+    # def print_solution(self):
+    #     for i in range(len(self.solution)):
+    #         for j in range(len(self.solution[0])):
+    #             if self.solution[i][j] != 0:
+    #                 print(self.solution[i][j].get_course(), end="           ")
+    #             else:
+    #                 print(self.solution[i][j], end="            ")
+    #         print()
 
-        for j in range(len(self.solution[0])):
-            for i in range(len(self.solution)):
-                if self.solution[i][j] != 0:
-                    self.solution[i][j].show()
-            print()
-
-        # for exam in self.solution_list:
-        #     print(exam.get_serial())
+    #     for j in range(len(self.solution[0])):
+    #         for i in range(len(self.solution)):
+    #             if self.solution[i][j] != 0:
+    #                 self.solution[i][j].show()
+    #         print()
 
     def make_txt(self):
         for j in range(len(self.solution[0])):
@@ -417,104 +371,22 @@ class ExamScheduler:
                     self.solution[i][j].get_student_txt()
         file_stu.close()
 
-    def new_room_solution(self):
-        # get all the students giving exam the same day
-        # make a temp enroll and remove all those from the thingy
-        # now sort the temp enroll and schedule exams#
 
-        # start
-        # see all the teachers and students giving exam that day
-        # remove them from the fake enroll and sort and schedule an exam
-        # get list of the students you scheduled an exam for
-        # and remove them from the true enroll
-        # remove a course whose count drops to zero
-        # do it until all count is zero #
-        pass
+# def run():
 
 
-print((date.today() + datetime.timedelta(days=1)).strftime("%d/%m/%Y"))
-start = ExamScheduler()
-start.start_annealing()
+# print("Press.")
+# print("1. for 2 weeks schedule")
+# print("2. for 3 weeks schedule")
+# pass_duration = int(input("Enter: "))
+# if pass_duration == 1:
+#     pass_duration = 10
+# elif pass_duration == 2:
+#     pass_duration = 15
+# else:
+#     print("Invalid Input")
 
-#
-# def set_course_rooms(self):
-#     for key, value in self.enroll.items():
-#         rooms = math.ceil(len(value) / self.room_strength)
-#         self.course_rooms.update({key: rooms})
-#     # print_dict(self.course_rooms)
-#
-# def random_solution(self):
-#     self.set_course_rooms()
-#     for room in range(self.room_size):
-#         for time in range(2):
-#             for day in range(self.SOLUTION_DAYS):
-#                 if len(self.course_rooms) > 0:
-#                     if self.solution[room + (self.room_size * time)][day] == 0:
-#                         key, value = self.course_rooms.popitem()
-#                         for assign in range(value):
-#                             if self.solution[room + (self.room_size * time) + assign][day] == 0:
-#                                 self.solution[room + (self.room_size * time) + assign][day] = key
-#     self.print_solution()
-#     score = 100
-#     minimum = 100
-#     while score != 0:
-#         self.print_solution()
-#         score, min_clash, max_clash = self.fitness_clash()
-#         self.random_clash_change(min_clash, max_clash)
-#         self.fitness_clash()
-#         if score < minimum:
-#             minimum = score
-#         print(f"Minimum: {minimum}")
-#
-#     # add annealing function
-#     # add teachers
-#     # assign time and students#
-#
-# def random_clash_change(self, min_day, max_day):
-#     course_set = set()
-#     for room in range(2 * self.SOLUTION_DAYS):
-#         if self.solution[room][max_day] != 0:
-#             course_set.add(self.solution[room][max_day])
-#     course_set = list(course_set)
-#     if len(course_set) > 0:
-#         print(f"{course_set[0]}, column: {max_day}")
-#         for room in range(2 * self.SOLUTION_DAYS):
-#             if self.solution[room][max_day] == course_set[0]:
-#                 self.solution[room][max_day] = 0
-#         itr = 0
-#         index = 0
-#         while itr < math.ceil(len(self.enroll[course_set[0]]) / 28) and index < 20:
-#             if self.solution[index][min_day] == 0:
-#                 self.solution[index][min_day] = course_set[0]
-#                 itr += 1
-#             index += 1
-#
-# def fitness_clash(self):
-#     course_set = list()
-#     score = 0
-#     col_score = 0
-#     max_clash = [0, 0]
-#     min_clash = [1000, 0]
-#     for day in range(self.SOLUTION_DAYS):
-#         for room in range(2 * self.room_size):
-#             if self.solution[room][day] != 0:
-#                 course_set.append(self.solution[room][day])
-#         course_set = set(course_set)
-#         course_set = list(course_set)
-#         for i in range(len(course_set) - 1):
-#             for j in range(i + 1, len(course_set)):
-#                 col_score += intersection(self.enroll[course_set[i]], self.enroll[course_set[j]])
-#         if col_score > max_clash[0]:
-#             max_clash[0] = col_score
-#             max_clash[1] = day
-#         if col_score < min_clash[0]:
-#             min_clash[0] = col_score
-#             min_clash[1] = day
-#         score += col_score
-#         col_score = 0
-#         course_set.clear()
-#
-#     print(f"Score is: {score}")
-#     print(f"max clash: {max_clash[1], max_clash[0]}, min clash: {min_clash[1], min_clash[0]}")
-#
-#     return score, min_clash[1], max_clash[1]
+# # if pass_duration == 10 or pass_duration == 15:
+def main():
+    start = ExamScheduler(10)
+    start.start_annealing()

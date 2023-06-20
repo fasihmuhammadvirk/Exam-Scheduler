@@ -1,0 +1,60 @@
+1   Monday    21/06/2023  MG220     Marketing Management                                09:00 AM         ROOM # 1   Hannan Farooq       
+1   Monday    21/06/2023  CS218     Data Structures                                     09:00 AM         ROOM # 2   Dr. Hashim Yasin    
+1   Monday    21/06/2023  CS328     Software Engineering                                09:00 AM         ROOM # 3   Tehreem Aslam       
+1   Monday    21/06/2023  CS302     Design & Analysis of Algorithms                     02:00 PM         ROOM # 1   Bushra Niaz         
+1   Monday    21/06/2023  CY2012    Digital Forensics                                   02:00 PM         ROOM # 2   Farah Iqbal         
+1   Monday    21/06/2023  SS111     Islamic and Religious Studies                       02:00 PM         ROOM # 3   Aisha Bano          
+2   Tuesday   22/06/2023  MG223     Fundamentals of Management                          09:00 AM         ROOM # 1   Saba Ghani          
+2   Tuesday   22/06/2023  CS211     Discrete Structures                                 09:00 AM         ROOM # 2   Mahrukh             
+2   Tuesday   22/06/2023  CS328     Software Engineering                                09:00 AM         ROOM # 3   Saba Ghani          
+2   Tuesday   22/06/2023  CS118     Programming Fundamentals                            02:00 PM         ROOM # 1   Ghilmana Sarmad     
+2   Tuesday   22/06/2023  EE227     Digital Logic Design                                02:00 PM         ROOM # 2   Usman Joyia         
+2   Tuesday   22/06/2023  DS3011    Big Data Analytics                                  02:00 PM         ROOM # 3   Saba Naseem         
+3   Wednesday 23/06/2023  MG220     Marketing Management                                09:00 AM         ROOM # 1   Rizwan ul Haq       
+3   Wednesday 23/06/2023  CY2012    Digital Forensics                                   09:00 AM         ROOM # 2   Rida Akram          
+3   Wednesday 23/06/2023  CS211     Discrete Structures                                 09:00 AM         ROOM # 3   Anmol Bilal         
+3   Wednesday 23/06/2023  CS307     Computer Networks                                   02:00 PM         ROOM # 1   Dr. Uzair Iqbal     
+3   Wednesday 23/06/2023  CS118     Programming Fundamentals                            02:00 PM         ROOM # 2   Rizwan ul Haq       
+3   Wednesday 23/06/2023  CS217     Object Oriented Programming                         02:00 PM         ROOM # 3   Aisha Bano          
+4   Thursday  24/06/2023  MG223     Fundamentals of Management                          09:00 AM         ROOM # 1   Saba Aslam          
+4   Thursday  24/06/2023  MT205     Probability and Statistics                          09:00 AM         ROOM # 2   Azeem Iftikhar      
+4   Thursday  24/06/2023  AI2011    Programming for AI                                  09:00 AM         ROOM # 3   Muhammad Ammar      
+4   Thursday  24/06/2023  SS152     Communication & Presentation Skills                 02:00 PM         ROOM # 1   Aliza Saeed         
+4   Thursday  24/06/2023  CS211     Discrete Structures                                 02:00 PM         ROOM # 2   Zain Iqbal          
+4   Thursday  24/06/2023  MT224     Differential Equations                              02:00 PM         ROOM # 3   Dr. Affan Rauf      
+5   Friday    25/06/2023  CS220     Operating Systems                                   09:00 AM         ROOM # 1   Dr. Sajid Ahmed     
+5   Friday    25/06/2023  CS218     Data Structures                                     09:00 AM         ROOM # 2   Zain Iqbal          
+5   Friday    25/06/2023  DS3011    Big Data Analytics                                  09:00 AM         ROOM # 3   Mahrukh             
+5   Friday    25/06/2023  MT205     Probability and Statistics                          02:00 PM         ROOM # 1   Dr. Hashim Yasin    
+5   Friday    25/06/2023  MT224     Differential Equations                              02:00 PM         ROOM # 2   Farah Iqbal         
+5   Friday    25/06/2023  CS217     Object Oriented Programming                         02:00 PM         ROOM # 3   Dr. Umar Aftab      
+6   Monday    26/06/2023  DS3011    Big Data Analytics                                  09:00 AM         ROOM # 1   Masood Habib        
+6   Monday    26/06/2023  CS219     Database Systems                                    09:00 AM         ROOM # 2   Aqsa Younus         
+6   Monday    26/06/2023  AI2011    Programming for AI                                  09:00 AM         ROOM # 3   Awais Azam          
+6   Monday    26/06/2023  SS152     Communication & Presentation Skills                 02:00 PM         ROOM # 1   Maham Naeem         
+6   Monday    26/06/2023  MT205     Probability and Statistics                          02:00 PM         ROOM # 2   Munaza Akhtar       
+6   Monday    26/06/2023  SS118     Psychology                                          02:00 PM         ROOM # 3   Tehreem Aslam       
+7   Tuesday   27/06/2023  MT205     Probability and Statistics                          09:00 AM         ROOM # 1   Dr. Irfan ul Haq    
+7   Tuesday   27/06/2023  SS113     Pakistan Studies                                    09:00 AM         ROOM # 2   Aliza Saeed         
+7   Tuesday   27/06/2023  SS118     Psychology                                          09:00 AM         ROOM # 3   Dr. Muhammad Ahmed  
+7   Tuesday   27/06/2023  CS307     Computer Networks                                   02:00 PM         ROOM # 1   Abdul Qadeer        
+7   Tuesday   27/06/2023  EE229     Computer Organization and Assembly Language         02:00 PM         ROOM # 2   Tehreem Aslam       
+7   Tuesday   27/06/2023  CS217     Object Oriented Programming                         02:00 PM         ROOM # 3   Zain Iqbal          
+8   Wednesday 28/06/2023  EE229     Computer Organization and Assembly Language         09:00 AM         ROOM # 1   Saba Ghani          
+8   Wednesday 28/06/2023  EE227     Digital Logic Design                                09:00 AM         ROOM # 2   Saba Naseem         
+8   Wednesday 28/06/2023  EE229     Computer Organization and Assembly Language         09:00 AM         ROOM # 3   Arfan Shahzad       
+8   Wednesday 28/06/2023  CS218     Data Structures                                     02:00 PM         ROOM # 1   Sadia Ashfaq        
+8   Wednesday 28/06/2023  MT224     Differential Equations                              02:00 PM         ROOM # 2   Pariwish Touseef    
+8   Wednesday 28/06/2023  SS118     Psychology                                          02:00 PM         ROOM # 3   Dr. Uzair Iqbal     
+9   Thursday  29/06/2023  SS113     Pakistan Studies                                    09:00 AM         ROOM # 1   Dr. Umar Aftab      
+9   Thursday  29/06/2023  SS111     Islamic and Religious Studies                       09:00 AM         ROOM # 2   Shehroze Khan       
+9   Thursday  29/06/2023  AI2011    Programming for AI                                  09:00 AM         ROOM # 3   Faryal Saud         
+9   Thursday  29/06/2023  CS302     Design & Analysis of Algorithms                     02:00 PM         ROOM # 1   Rida Akram          
+9   Thursday  29/06/2023  CS328     Software Engineering                                02:00 PM         ROOM # 2   Muhammad Noman      
+9   Thursday  29/06/2023  EE229     Computer Organization and Assembly Language         02:00 PM         ROOM # 3   Dr. Hashim Yasin    
+10  Friday    30/06/2023  SE110     Intro to Software Engineering                       09:00 AM         ROOM # 1   Dr. Bilal Khan      
+10  Friday    30/06/2023  CS118     Programming Fundamentals                            09:00 AM         ROOM # 2   Rizwan ul Haq       
+10  Friday    30/06/2023  CS328     Software Engineering                                09:00 AM         ROOM # 3   Muiz Qadir          
+10  Friday    30/06/2023  CS307     Computer Networks                                   02:00 PM         ROOM # 1   Muhammad Yousaf     
+10  Friday    30/06/2023  CS219     Database Systems                                    02:00 PM         ROOM # 2   Hafiz Tayyab        
+10  Friday    30/06/2023  SS118     Psychology                                          02:00 PM         ROOM # 3   Rida Akram          

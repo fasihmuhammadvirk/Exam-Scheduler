@@ -6,9 +6,8 @@ import numpy as np
 import math
 import copy
 
-file = open("Code\schedule\Datesheet.txt", "w")
-file_stu = open("Code\schedule\Datesheet.txt", "w")
-
+file = open("Code/schedule/Datesheet.txt", "w")
+file_stu = open("Code/schedule/SeatingPlan.txt", "w")
 
 class ExamSlot:
     def __init__(self, code, crs_name, day, time, room, teacher, stu_list, srNo):
@@ -118,18 +117,18 @@ class ExamScheduler:
 
     def __init__(self, duration):
         # self.courses = pd.read_csv('./test_dataset/courses.csv', header=None)
-        self.courses = pd.read_csv('Code\\actual_dataset\\courses.csv', header=None)
+        self.courses = pd.read_csv('Code/actual_dataset/courses.csv', header=None)
         self.courses = np.array(self.courses)
         # self.rooms = pd.read_csv('./test_dataset/rooms.csv', header=None)
-        self.rooms = pd.read_csv('Code\\actual_dataset\\rooms.csv', header=None)
+        self.rooms = pd.read_csv('Code/actual_dataset/rooms.csv', header=None)
         self.rooms = np.array(self.rooms)
         # self.student_courses = pd.read_csv('./test_dataset/studentCourse.csv')
-        self.student_courses = pd.read_csv('Code\\actual_dataset\\studentCourses.csv')
+        self.student_courses = pd.read_csv('Code/actual_dataset/studentCourses.csv')
         # self.students = pd.read_csv('./test_dataset/studentNames.csv', header=None)
-        self.students = pd.read_csv('Code\\actual_dataset\\studentNames.csv', header=None)
+        self.students = pd.read_csv('Code/actual_dataset/studentNames.csv', header=None)
         self.students = np.array(self.students)
         # self.teachers = pd.read_csv('./test_dataset/teachers.csv', header=None)
-        self.teachers = pd.read_csv('Code\\actual_dataset\\teachers.csv', header=None)
+        self.teachers = pd.read_csv('Code/actual_dataset/teachers.csv', header=None)
         self.teachers = np.array(self.teachers)
         self.teachers = list(self.teachers)
         self.enroll = dict()
@@ -387,6 +386,7 @@ class ExamScheduler:
 #     print("Invalid Input")
 
 # # if pass_duration == 10 or pass_duration == 15:
+
 def main():
-    start = ExamScheduler(10)
+    start = ExamScheduler(15)
     start.start_annealing()
