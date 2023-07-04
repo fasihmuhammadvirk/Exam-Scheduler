@@ -6,8 +6,8 @@ import numpy as np
 import math
 import copy
 
-file = open("Code/schedule/Datesheet.txt", "w")
-file_stu = open("Code/schedule/SeatingPlan.txt", "w")
+file = open("Code\schedule\Datesheet.txt", "w")
+file_stu = open("Code\schedule\SeatingPlan.txt", "w")
 
 
 class ExamSlot:

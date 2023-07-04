@@ -59,7 +59,7 @@ class SeatingPlan:
 
     def show_datesheet(self):
         # Open the text file and read its contents
-        file = open("Code/schedule/SeatingPlan.txt", "r")
+        file = open("Code\schedule\SeatingPlan.txt", "r")
         lines = file.read()               
         words = lines.split('\n')
         new_lst = []
